@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { fieldBase, fieldHeight, type FieldSize } from "./_shared";
 
-export interface FormDropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface FormDropdownProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "size"> {
   size?: FieldSize;
   options?: { value: string; label: string }[];
   placeholder?: string;

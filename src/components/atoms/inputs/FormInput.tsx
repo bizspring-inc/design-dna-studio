@@ -5,7 +5,7 @@ import { forwardRef, InputHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 import { fieldBase, fieldHeight, type FieldSize } from "./_shared";
 
-export interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface FormInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: FieldSize;
   wrapperClassName?: string;
 }
