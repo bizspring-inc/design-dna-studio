@@ -1,102 +1,213 @@
+/*
+ * Growth Platform Design System
+ * - 모든 디자인 토큰은 CSS 변수로 중앙 관리
+ * - Tailwind 유틸리티는 tailwind.config.ts에서 이 변수들을 매핑
+ * - 컴포넌트에서는 절대 raw color/size 값을 쓰지 않는다
+ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* ================================================================
+     * COLORS — HSL 형식 (Tailwind hsl(var(--token)) 형태로 사용)
+     * ================================================================ */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Grayscale */
+    --gray-50:  220 27% 99%;   /* #fafbfd */
+    --gray-100: 210 17% 98%;   /* #f8f9fa */
+    --gray-150: 220 9% 96%;    /* #f4f5f6 */
+    --gray-200: 210 14% 93%;   /* #e9ecef */
+    --gray-300: 210 14% 89%;   /* #dee2e6 */
+    --gray-400: 210 9% 77%;    /* #bdc4ca */
+    --gray-500: 210 11% 71%;   /* #adb5bd */
+    --gray-600: 208 7% 46%;    /* #6c757d */
+    --gray-700: 210 9% 31%;    /* #495057 */
+    --gray-800: 210 10% 23%;   /* #343a40 */
+    --gray-900: 210 11% 15%;   /* #212529 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Sky (Primary) */
+    --sky:               203 94% 62%;    /* #41b3f9 */
+    --sky-hover:         203 71% 56%;    /* #3ba1e0 */
+    --sky-active:        203 71% 56%;    /* #3ba1e0 */
+    --sky-light-xl:      203 100% 98%;   /* #f7fcff */
+    --sky-light:         203 91% 96%;    /* #ecf7fe */
+    --sky-light-hover:   203 92% 94%;    /* #e3f4fe */
+    --sky-light-active:  203 93% 88%;    /* #c4e7fd */
+    --sky-dark:          203 58% 47%;    /* #3186bb */
+    --sky-dark-hover:    203 58% 37%;    /* #276b95 */
+    --sky-dark-active:   203 59% 28%;    /* #1d5170 */
+    --sky-darker:        203 58% 22%;    /* #173f57 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Teal (Tertiary) */
+    --teal:              167 70% 47%;    /* #24c9a5 */
+    --teal-hover:        167 71% 41%;    /* #1db588 */
+    --teal-active:       167 71% 41%;    /* #1db588 */
+    --teal-light:        160 65% 95%;    /* #e9faf5 */
+    --teal-light-hover:  158 65% 92%;    /* #def7ef */
+    --teal-light-active: 162 67% 83%;    /* #baeedf */
+    --teal-dark:         163 72% 35%;    /* #189771 */
+    --teal-dark-hover:   163 72% 27%;    /* #13795b */
+    --teal-dark-active:  163 73% 20%;    /* #0e5a44 */
+    --teal-darker:       163 72% 16%;    /* #0b4635 */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Purple (Secondary) */
+    --purple:              248 81% 65%;  /* #7460ee */
+    --purple-hover:        249 62% 59%;  /* #6856d6 */
+    --purple-active:       249 62% 59%;  /* #6856d6 */
+    --purple-light:        249 86% 96%;  /* #f1effd */
+    --purple-light-hover:  249 84% 94%;  /* #eae7fc */
+    --purple-light-active: 249 84% 89%;  /* #d4cefa */
+    --purple-dark:         249 41% 49%;  /* #5748b3 */
+    --purple-dark-hover:   249 41% 39%;  /* #463a8f */
+    --purple-dark-active:  249 41% 29%;  /* #342b6b */
+    --purple-darker:       249 41% 23%;  /* #292253 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Blue */
+    --blue:              218 84% 60%;    /* #4382ee */
+    --blue-hover:        212 86% 49%;    /* #1169ea */
+    --blue-active:       212 86% 49%;    /* #1169ea */
+    --blue-light:        217 86% 96%;    /* #ecf3fd */
+    --blue-light-hover:  218 86% 94%;    /* #e3ecfc */
+    --blue-light-active: 218 87% 88%;    /* #c5d8fa */
+    --blue-dark:         218 55% 45%;    /* #3262b3 */
+    --blue-dark-hover:   218 55% 36%;    /* #284e8f */
+    --blue-dark-active:  218 56% 27%;    /* #1e3a6b */
+    --blue-darker:       218 55% 21%;    /* #172e53 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Yellow */
+    --yellow:              45 100% 51%;  /* #ffc107 */
+    --yellow-hover:        45 95% 46%;   /* #e6ae06 */
+    --yellow-active:       45 95% 46%;   /* #e6ae06 */
+    --yellow-light:        47 100% 95%;  /* #fff9e6 */
+    --yellow-light-hover:  46 100% 92%;  /* #fff6da */
+    --yellow-light-active: 46 100% 85%;  /* #ffecb2 */
+    --yellow-dark:         45 95% 38%;   /* #bf9105 */
+    --yellow-dark-hover:   45 95% 30%;   /* #997404 */
+    --yellow-dark-active:  45 95% 23%;   /* #735703 */
+    --yellow-darker:       45 95% 18%;   /* #594402 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Red */
+    --red:              7 100% 60%;      /* #ff4b35 */
+    --red-hover:        7 79% 54%;       /* #e64430 */
+    --red-active:       7 79% 54%;       /* #e64430 */
+    --red-light:        7 100% 96%;      /* #ffedeb */
+    --red-light-hover:  7 100% 94%;      /* #ffe4e1 */
+    --red-light-active: 7 100% 88%;      /* #ffc7c0 */
+    --red-dark:         7 65% 45%;       /* #bf3828 */
+    --red-dark-hover:   7 65% 36%;       /* #992d20 */
+    --red-dark-active:  7 65% 27%;       /* #732218 */
+    --red-darker:       7 65% 21%;       /* #591a13 */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Semantic: Brand */
+    --primary:          var(--sky);
+    --primary-hover:    var(--sky-hover);
+    --primary-active:   var(--sky-active);
+    --secondary:        var(--purple);
+    --secondary-hover:  var(--purple-hover);
+    --secondary-active: var(--purple-active);
+    --tertiary:         var(--teal);
+    --tertiary-hover:   var(--teal-hover);
+    --tertiary-active:  var(--teal-active);
 
-    --radius: 0.5rem;
+    /* Semantic: Background / Foreground (shadcn 호환) */
+    --background:           0 0% 100%;
+    --foreground:           var(--gray-900);
+    --card:                 0 0% 100%;
+    --card-foreground:      var(--gray-900);
+    --popover:              0 0% 100%;
+    --popover-foreground:   var(--gray-900);
+    --primary-foreground:   0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
+    --muted:                var(--gray-150);
+    --muted-foreground:     var(--gray-600);
+    --accent:               var(--gray-150);
+    --accent-foreground:    var(--gray-900);
+    --destructive:          var(--red);
+    --destructive-foreground: 0 0% 100%;
+    --border:               var(--gray-300);
+    --input:                var(--gray-300);
+    --ring:                 var(--gray-900);
 
-    --sidebar-background: 0 0% 98%;
+    /* Semantic: Font */
+    --font-default:    var(--gray-900);
+    --font-white:      0 0% 100%;
+    --font-mute-dark:  var(--gray-600);
+    --font-mute-light: var(--gray-400);
+    --font-link:       var(--blue);
+    --font-link-hover: var(--blue-hover);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Semantic: Border colors */
+    --border-extra-light: var(--gray-200);
+    --border-default:     var(--gray-300);
+    --border-light:       var(--gray-500);
+    --border-dark:        var(--gray-700);
+    --border-black:       var(--gray-900);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Semantic: Surfaces */
+    --surface-purple:        var(--purple-light);
+    --surface-purple-hover:  var(--purple-light-hover);
+    --surface-teal:          var(--teal-light);
+    --surface-teal-hover:    var(--teal-light-hover);
+    --surface-blue:          var(--blue-light);
+    --surface-blue-hover:    var(--blue-light-hover);
+    --surface-yellow:        var(--yellow-light);
+    --surface-yellow-hover:  var(--yellow-light-hover);
+    --surface-red:           var(--red-light);
+    --surface-red-hover:     var(--red-light-hover);
+    --surface-sky-bg:        var(--sky-light-xl);
+    --surface-sky:           var(--sky-light);
+    --surface-sky-hover:     var(--sky-light-hover);
+    --surface-white:         0 0% 100%;
+    --surface-white-hover:   var(--gray-50);
+    --surface-gray-light:    var(--gray-50);
+    --surface-gray:          var(--gray-100);
+    --surface-gray-hover:    var(--gray-200);
+    --surface-body:          var(--gray-150);
+    --surface-black:         var(--gray-900);
+    --surface-black-hover:   var(--gray-800);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar (shadcn 호환) */
+    --sidebar-background:         var(--gray-50);
+    --sidebar-foreground:         var(--gray-700);
+    --sidebar-primary:            var(--gray-900);
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent:             var(--gray-100);
+    --sidebar-accent-foreground:  var(--gray-900);
+    --sidebar-border:             var(--gray-200);
+    --sidebar-ring:               var(--sky);
+
+    /* ================================================================
+     * RADIUS / SHADOW / BORDER
+     * ================================================================ */
+    --radius-xs: 3px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius: var(--radius-sm); /* shadcn 기본 */
+
+    --shadow-sm: 0 1px 4px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+
+    --border-w-default: 1px;
+    --border-w-bold:    2px;
+    --border-w-quote:   4px;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html, body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
   }
 
   body {
