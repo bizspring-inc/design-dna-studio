@@ -3,7 +3,7 @@
  */
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "@/lib/utils";
-import { btnBase, sizeMd3, type } from "./_shared";
+import { btnBase, sizeMd3 } from "./_shared";
 
 export type BtnSize3 = "md" | "sm" | "xs";
 
