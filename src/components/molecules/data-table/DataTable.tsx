@@ -82,7 +82,7 @@ export const DataTableRow = forwardRef<HTMLTableRowElement, DataTableRowProps>(
       ref={ref}
       className={cn(
         "transition-colors duration-100",
-        hoverable && "hover:bg-surface-body",
+        hoverable && "hover:bg-surface-gray",
         selected && "bg-surface-sky",
         striped && "even:bg-surface-gray-light",
         className,
@@ -122,9 +122,9 @@ export const DataTableHead = forwardRef<HTMLTableCellElement, DataTableHeadProps
       {sortable ? (
         <span className="inline-flex items-center gap-1">
           {children}
-          <span className="inline-flex flex-col leading-none text-[10px] text-grayscale-400">
-            <span className={sortDirection === "asc" ? "text-sky" : ""}>▲</span>
-            <span className={sortDirection === "desc" ? "text-sky" : ""}>▼</span>
+          <span className="inline-flex flex-col leading-none text-[8px]">
+            <span className={sortDirection === "asc" ? "text-sky" : "text-font-mute-light"}>▲</span>
+            <span className={sortDirection === "desc" ? "text-sky" : "text-font-mute-light"}>▼</span>
           </span>
         </span>
       ) : (
