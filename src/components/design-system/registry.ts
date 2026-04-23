@@ -144,6 +144,36 @@ export const dsRegistry: DSEntry[] = [
     Showcase: lazy(() => import("./showcases/Text.showcase")),
   },
 
+  // ─── Atoms / Controls ─────────────────────────────────────────────
+  {
+    name: "Tab",
+    group: "Controls",
+    category: "atoms",
+    description: "탭 메뉴 아이템 + TabGroup 래퍼.",
+    Showcase: lazy(() => import("./showcases/Tab.showcase")),
+  },
+  {
+    name: "Radio",
+    group: "Controls",
+    category: "atoms",
+    description: "라디오 버튼 (17×17, label 옵션).",
+    Showcase: lazy(() => import("./showcases/Radio.showcase")),
+  },
+  {
+    name: "CheckBox",
+    group: "Controls",
+    category: "atoms",
+    description: "체크박스 (17×17, label 옵션).",
+    Showcase: lazy(() => import("./showcases/CheckBox.showcase")),
+  },
+  {
+    name: "Switch",
+    group: "Controls",
+    category: "atoms",
+    description: "토글 스위치 (34×20).",
+    Showcase: lazy(() => import("./showcases/Switch.showcase")),
+  },
+
   // ─── Atoms / Data Display ─────────────────────────────────────────
   {
     name: "Label",
@@ -151,6 +181,41 @@ export const dsRegistry: DSEntry[] = [
     category: "atoms",
     description: "작은 라벨 칩 (square / round).",
     Showcase: lazy(() => import("./showcases/Label.showcase")),
+  },
+  {
+    name: "ProjectStatus",
+    group: "Data Display",
+    category: "atoms",
+    description: "프로젝트 상태 배지 (온보딩/이용중/이용완료).",
+    Showcase: lazy(() => import("./showcases/ProjectStatus.showcase")),
+  },
+  {
+    name: "TypeLabel",
+    group: "Data Display",
+    category: "atoms",
+    description: "발송 유형 배지 (즉시/예약/트리거).",
+    Showcase: lazy(() => import("./showcases/TypeLabel.showcase")),
+  },
+  {
+    name: "ActionStatus",
+    group: "Data Display",
+    category: "atoms",
+    description: "액션 결과 배지 (성공/대기/완료/실패).",
+    Showcase: lazy(() => import("./showcases/ActionStatus.showcase")),
+  },
+  {
+    name: "OnboardingStatus",
+    group: "Data Display",
+    category: "atoms",
+    description: "온보딩 단계 상태 배지 (테두리형).",
+    Showcase: lazy(() => import("./showcases/OnboardingStatus.showcase")),
+  },
+  {
+    name: "InquiryStatus",
+    group: "Data Display",
+    category: "atoms",
+    description: "문의 상태 배지 (접수/완료/임시저장).",
+    Showcase: lazy(() => import("./showcases/InquiryStatus.showcase")),
   },
 
   // ─── Atoms / Feedback ─────────────────────────────────────────────
@@ -160,6 +225,15 @@ export const dsRegistry: DSEntry[] = [
     category: "atoms",
     description: "노란 배경 안내문.",
     Showcase: lazy(() => import("./showcases/Blockquote.showcase")),
+  },
+
+  // ─── Molecules / Data Table ───────────────────────────────────────
+  {
+    name: "DataTable",
+    group: "Data Table",
+    category: "molecules",
+    description: "테이블 패밀리 (Header/Body/Row/Head/Cell/Empty).",
+    Showcase: lazy(() => import("./showcases/DataTable.showcase")),
   },
 ];
 
