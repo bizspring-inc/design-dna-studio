@@ -34,19 +34,20 @@ export default {
         sans:       ["Pretendard", "sans-serif"],
       },
       fontSize: {
-        h1:           ["36px", { lineHeight: "125%", letterSpacing: "-0.02em" }],
-        h2:           ["24px", { lineHeight: "130%", letterSpacing: "-0.02em" }],
-        h3:           ["21px", { lineHeight: "130%", letterSpacing: "-0.02em" }],
-        h4:           ["18px", { lineHeight: "145%", letterSpacing: "-0.02em" }],
-        h5:           ["16px", { lineHeight: "160%", letterSpacing: "-0.02em" }],
-        "body-xs":    ["12px", { lineHeight: "145%", letterSpacing: "-0.02em" }],
-        "body-sm":    ["13px", { lineHeight: "145%", letterSpacing: "-0.02em" }],
-        "body-md":    ["14px", { lineHeight: "160%", letterSpacing: "-0.02em" }],
-        "body-lg":    ["15px", { lineHeight: "160%", letterSpacing: "-0.02em" }],
-        "body-xl":    ["18px", { lineHeight: "170%", letterSpacing: "-0.02em" }],
-        caption:      ["12px", { lineHeight: "125%", letterSpacing: "-0.02em" }],
-        label:        ["12px", { lineHeight: "125%", letterSpacing: "-0.02em" }],
-        tag:          ["12px", { lineHeight: "125%", letterSpacing: "-0.02em" }],
+        // 1rem = 16px 기준
+        h1:           ["2.25rem",   { lineHeight: "125%", letterSpacing: "-0.02em" }], // 36px
+        h2:           ["1.5rem",    { lineHeight: "130%", letterSpacing: "-0.02em" }], // 24px
+        h3:           ["1.3125rem", { lineHeight: "130%", letterSpacing: "-0.02em" }], // 21px
+        h4:           ["1.125rem",  { lineHeight: "145%", letterSpacing: "-0.02em" }], // 18px
+        h5:           ["1rem",      { lineHeight: "160%", letterSpacing: "-0.02em" }], // 16px
+        "body-xs":    ["0.75rem",   { lineHeight: "145%", letterSpacing: "-0.02em" }], // 12px
+        "body-sm":    ["0.8125rem", { lineHeight: "145%", letterSpacing: "-0.02em" }], // 13px
+        "body-md":    ["0.875rem",  { lineHeight: "160%", letterSpacing: "-0.02em" }], // 14px
+        "body-lg":    ["0.9375rem", { lineHeight: "160%", letterSpacing: "-0.02em" }], // 15px
+        "body-xl":    ["1.125rem",  { lineHeight: "170%", letterSpacing: "-0.02em" }], // 18px
+        caption:      ["0.75rem",   { lineHeight: "125%", letterSpacing: "-0.02em" }], // 12px
+        label:        ["0.75rem",   { lineHeight: "125%", letterSpacing: "-0.02em" }], // 12px
+        tag:          ["0.75rem",   { lineHeight: "125%", letterSpacing: "-0.02em" }], // 12px
       },
       fontWeight: {
         light: "300", normal: "400", medium: "500", semibold: "600", bold: "700",
