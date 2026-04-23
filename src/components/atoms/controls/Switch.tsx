@@ -28,7 +28,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       />
       <span
         className={cn(
-          "relative shrink-0 w-[34px] h-[20px] rounded-label-round border transition-colors duration-200",
+          "relative shrink-0 w-[34px] h-[20px] rounded-label-round border transition-colors duration-300 ease-in-out",
           "bg-border-extra-light border-border",
           "peer-checked:bg-sky peer-checked:border-sky",
           className,
@@ -36,9 +36,10 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       >
         <span
           className={cn(
-            "absolute top-1/2 -translate-y-1/2 size-[18px] rounded-full bg-surface-white shadow-sm",
-            "left-px transition-[left] duration-200",
-            "peer-checked:left-[calc(100%-19px)]",
+            "absolute top-1/2 left-px size-[16px] rounded-full bg-surface-white shadow-sm",
+            "transition-transform duration-300 ease-in-out",
+            "-translate-y-1/2 translate-x-0",
+            "peer-checked:translate-x-[14px]",
           )}
           aria-hidden="true"
         />
@@ -60,7 +61,7 @@ export const SwitchIndicator = ({
 }) => (
   <span
     className={cn(
-      "relative shrink-0 inline-flex items-center w-[34px] h-[20px] rounded-label-round border transition-colors duration-200",
+      "relative shrink-0 inline-flex items-center w-[34px] h-[20px] rounded-label-round border transition-colors duration-300 ease-in-out",
       checked ? "bg-sky border-sky" : "bg-border-extra-light border-border",
       className,
     )}
@@ -68,8 +69,8 @@ export const SwitchIndicator = ({
   >
     <span
       className={cn(
-        "absolute top-1/2 -translate-y-1/2 size-[18px] rounded-full bg-surface-white shadow-sm transition-[left] duration-200",
-        checked ? "left-[calc(100%-19px)]" : "left-px",
+        "absolute top-1/2 left-px size-[16px] rounded-full bg-surface-white shadow-sm transition-transform duration-300 ease-in-out -translate-y-1/2",
+        checked ? "translate-x-[14px]" : "translate-x-0",
       )}
     />
   </span>
