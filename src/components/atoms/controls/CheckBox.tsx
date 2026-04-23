@@ -26,16 +26,14 @@ export const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
           "relative shrink-0 size-icon-sm border transition-colors duration-150",
           "bg-surface-white border-border-extra-light",
           "peer-checked:bg-sky peer-checked:border-sky",
+          "[&>svg]:opacity-0 peer-checked:[&>svg]:opacity-100",
           className,
         )}
       >
         <Check
           size={11}
-          strokeWidth={2.5}
-          className={cn(
-            "absolute inset-0 m-auto text-font-white",
-            "opacity-0 peer-checked:opacity-100 transition-opacity duration-150",
-          )}
+          strokeWidth={3}
+          className="absolute inset-0 m-auto text-font-white transition-opacity duration-150"
           aria-hidden="true"
         />
       </span>
