@@ -206,17 +206,20 @@ export default function TokensShowcase() {
       {/* Typography */}
       <section className="flex flex-col gap-md">
         <Heading level={3}>Typography</Heading>
+        <Text size="sm" tone="muted">
+          1rem = 16px 기준. 모든 폰트 사이즈는 rem 단위로 정의되어 사용자 브라우저 설정에 따라 스케일됩니다.
+        </Text>
         <div className="flex flex-col gap-sm p-lg bg-surface-white border border-border rounded-md">
-          <Heading level={1}>Heading 1 — 36px</Heading>
-          <Heading level={2}>Heading 2 — 24px</Heading>
-          <Heading level={3}>Heading 3 — 21px</Heading>
-          <Heading level={4}>Heading 4 — 18px</Heading>
-          <Heading level={5}>Heading 5 — 16px</Heading>
-          <Text size="xl">Body XL — 18px</Text>
-          <Text size="lg">Body LG — 15px</Text>
-          <Text size="md">Body MD — 14px</Text>
-          <Text size="sm">Body SM — 13px</Text>
-          <Text size="xs">Body XS — 12px</Text>
+          <Heading level={1}>Heading 1 — 2.25rem (36px)</Heading>
+          <Heading level={2}>Heading 2 — 1.5rem (24px)</Heading>
+          <Heading level={3}>Heading 3 — 1.3125rem (21px)</Heading>
+          <Heading level={4}>Heading 4 — 1.125rem (18px)</Heading>
+          <Heading level={5}>Heading 5 — 1rem (16px)</Heading>
+          <Text size="xl">Body XL — 1.125rem (18px)</Text>
+          <Text size="lg">Body LG — 0.9375rem (15px)</Text>
+          <Text size="md">Body MD — 0.875rem (14px)</Text>
+          <Text size="sm">Body SM — 0.8125rem (13px)</Text>
+          <Text size="xs">Body XS — 0.75rem (12px)</Text>
         </div>
       </section>
 
