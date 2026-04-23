@@ -16,19 +16,24 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
       ref={ref}
       role="tab"
       aria-selected={active}
+      data-state={active ? "active" : "inactive"}
       className={cn(
-        "inline-flex items-center overflow-hidden p-sm",
+        "relative inline-flex items-center p-sm",
         "font-sans font-semibold text-h4 whitespace-nowrap",
-        "border-b-bold border-solid",
-        "transition-colors duration-150 cursor-pointer",
-        active
-          ? "border-b-sky text-foreground"
-          : "border-b-transparent text-font-mute-dark hover:text-foreground",
+        "transition-colors duration-150 cursor-pointer bg-transparent",
+        active ? "text-foreground" : "text-font-mute-dark hover:text-foreground",
         className,
       )}
       {...props}
     >
       {children}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "absolute left-0 right-0 -bottom-px h-[2px] transition-colors duration-150",
+          active ? "bg-sky" : "bg-transparent",
+        )}
+      />
     </button>
   ),
 );
@@ -43,7 +48,7 @@ export const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(
     <div
       ref={ref}
       role="tablist"
-      className={cn("flex items-end border-b border-border", className)}
+      className={cn("flex items-end gap-sm border-b border-border-extra-light", className)}
       {...props}
     >
       {children}
