@@ -18,18 +18,22 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
       aria-selected={active}
       data-state={active ? "active" : "inactive"}
       className={cn(
-        "relative inline-flex items-center overflow-hidden p-sm -mb-px",
+        "relative inline-flex items-center p-sm",
         "font-sans font-semibold text-h4 whitespace-nowrap",
-        "border-b-bold border-solid",
-        "transition-colors duration-150 cursor-pointer",
-        active
-          ? "border-sky text-foreground"
-          : "border-transparent text-font-mute-dark hover:text-foreground",
+        "transition-colors duration-150 cursor-pointer bg-transparent",
+        active ? "text-foreground" : "text-font-mute-dark hover:text-foreground",
         className,
       )}
       {...props}
     >
       {children}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "absolute left-0 right-0 -bottom-px h-[2px] transition-colors duration-150",
+          active ? "bg-sky" : "bg-transparent",
+        )}
+      />
     </button>
   ),
 );
