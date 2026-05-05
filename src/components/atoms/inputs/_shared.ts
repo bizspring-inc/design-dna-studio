@@ -12,6 +12,6 @@ export const fieldBase =
   "w-full flex items-center px-ph-12 py-pv-6 " +
   "font-sans text-body-md " +
   "bg-surface-white border border-border " +
-  "transition-colors duration-150 outline-none rounded-sm " +
+  "transition-colors duration-150 outline-none rounded-xs " +
   "focus:border-border-black " +
   "disabled:bg-surface-gray-light disabled:cursor-not-allowed";
