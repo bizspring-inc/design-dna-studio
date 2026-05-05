@@ -218,6 +218,15 @@ export const dsRegistry: DSEntry[] = [
     Showcase: lazy(() => import("./showcases/InquiryStatus.showcase")),
   },
 
+  // ─── Atoms / Surfaces ─────────────────────────────────────────────
+  {
+    name: "Card",
+    group: "Surfaces",
+    category: "atoms",
+    description: "콘텐츠 카드 컨테이너 (padding sm/md/lg/xl, radius sm, border-default).",
+    Showcase: lazy(() => import("./showcases/Card.showcase")),
+  },
+
   // ─── Atoms / Feedback ─────────────────────────────────────────────
   {
     name: "Blockquote",
