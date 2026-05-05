@@ -7,13 +7,14 @@
 import { HTMLAttributes, forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-export type CardPadding = "sm" | "md" | "lg" | "xl";
+export type CardPadding = "xs" | "sm" | "md" | "lg" | "xl";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   padding?: CardPadding;
 }
 
 const paddingMap: Record<CardPadding, string> = {
+  xs: "p-xs",
   sm: "p-sm",
   md: "p-md",
   lg: "p-lg",
