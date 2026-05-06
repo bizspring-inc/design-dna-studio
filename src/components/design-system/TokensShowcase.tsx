@@ -171,6 +171,24 @@ function ColorGrid({ entries }: { entries: ColorEntry[] }) {
   );
 }
 
+function RuleCard({ title, rows }: { title: string; rows: [string, string][] }) {
+  return (
+    <div className="flex flex-col gap-sm p-lg bg-surface-white border border-border rounded-md">
+      <Text size="sm" className="font-semibold">{title}</Text>
+      <ul className="flex flex-col gap-xs">
+        {rows.map(([token, desc]) => (
+          <li key={token} className="flex items-center gap-sm">
+            <span className="px-ph-6 py-pv-1 text-tag rounded-xs bg-surface-gray text-foreground font-mono shrink-0">
+              {token}
+            </span>
+            <Text size="sm" tone="muted">{desc}</Text>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function TokensShowcase() {
   return (
     <div className="flex flex-col gap-2xl">
@@ -226,6 +244,9 @@ export default function TokensShowcase() {
       {/* Spacing */}
       <section className="flex flex-col gap-md">
         <Heading level={3}>Spacing</Heading>
+        <Text size="sm" tone="muted">
+          padding · margin · gap 모든 여백은 아래 토큰만 사용합니다. 임의의 px 값은 금지.
+        </Text>
         <div className="flex flex-col gap-sm p-lg bg-surface-white border border-border rounded-md">
           {spacings.map(([name, value]) => (
             <div key={name} className="flex items-center gap-md">
@@ -234,6 +255,51 @@ export default function TokensShowcase() {
               <Text size="xs" tone="muted">{value}</Text>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Layout Spacing Rules */}
+      <section className="flex flex-col gap-md">
+        <Heading level={3}>Layout Spacing Rules</Heading>
+        <Text size="sm" tone="muted">
+          여백은 용도별 토큰 규칙에 따라 적용합니다. 컴포넌트 내부와 레이아웃 외부 여백을 분리하여 일관된 리듬을 유지합니다.
+        </Text>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+          <RuleCard title="Page / Section" rows={[
+            ["px-lg", "페이지 좌우 여백 (24px)"],
+            ["py-lg", "페이지 상하 여백 (24px)"],
+            ["gap-2xl", "섹션 간 간격 (48px)"],
+            ["gap-lg", "섹션 내 그룹 간격 (24px)"],
+          ]} />
+          <RuleCard title="Card / Panel" rows={[
+            ["p-md", "기본 카드 내부 여백 (16px)"],
+            ["p-lg", "강조 카드 내부 여백 (24px)"],
+            ["gap-md", "카드 내부 블록 간격 (16px)"],
+            ["gap-sm", "카드 내부 텍스트 간격 (8px)"],
+          ]} />
+          <RuleCard title="Form / Field" rows={[
+            ["gap-md", "필드 그룹 세로 간격 (16px)"],
+            ["gap-xs", "라벨 ↔ 입력 간격 (4px)"],
+            ["px-ph-12", "입력 가로 패딩 (12px)"],
+            ["py-pv-6", "입력 세로 패딩 (6px)"],
+          ]} />
+          <RuleCard title="Inline / Control" rows={[
+            ["gap-sm", "버튼 그룹 가로 간격 (8px)"],
+            ["gap-xs", "아이콘 ↔ 라벨 간격 (4px)"],
+            ["px-md", "버튼 가로 패딩 md (16px)"],
+            ["px-ph-6", "버튼 가로 패딩 xs (6px)"],
+          ]} />
+        </div>
+
+        <div className="flex flex-col gap-xs p-lg bg-surface-sky-bg border border-border-extra-light rounded-md">
+          <Text size="sm" className="font-semibold">원칙</Text>
+          <ul className="flex flex-col gap-2xs list-disc pl-md">
+            <li><Text size="sm">컨테이너 사이 간격은 <span className="font-mono">gap-*</span> 사용. 자식의 <span className="font-mono">margin</span>은 지양.</Text></li>
+            <li><Text size="sm">내부 여백은 <span className="font-mono">padding</span>, 외부 정렬은 부모의 <span className="font-mono">gap</span>으로 분리.</Text></li>
+            <li><Text size="sm">컨트롤(버튼·입력)은 전용 토큰 <span className="font-mono">px-ph-*</span>, <span className="font-mono">py-pv-*</span> 사용.</Text></li>
+            <li><Text size="sm">레이아웃 여백 위계: <span className="font-mono">md(16) → lg(24) → xl(32) → 2xl(48)</span>.</Text></li>
+          </ul>
         </div>
       </section>
 
