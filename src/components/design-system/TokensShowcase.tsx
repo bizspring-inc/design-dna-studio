@@ -187,6 +187,7 @@ function RuleCard({ title, rows }: { title: string; rows: [string, string][] }) 
       </ul>
     </div>
   );
+}
 
 export default function TokensShowcase() {
   return (
