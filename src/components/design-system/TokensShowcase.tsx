@@ -171,6 +171,23 @@ function ColorGrid({ entries }: { entries: ColorEntry[] }) {
   );
 }
 
+function RuleCard({ title, rows }: { title: string; rows: [string, string][] }) {
+  return (
+    <div className="flex flex-col gap-sm p-lg bg-surface-white border border-border rounded-md">
+      <Text size="sm" className="font-semibold">{title}</Text>
+      <ul className="flex flex-col gap-xs">
+        {rows.map(([token, desc]) => (
+          <li key={token} className="flex items-center gap-sm">
+            <span className="px-ph-6 py-pv-1 text-tag rounded-xs bg-surface-gray text-foreground font-mono shrink-0">
+              {token}
+            </span>
+            <Text size="sm" tone="muted">{desc}</Text>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
 export default function TokensShowcase() {
   return (
     <div className="flex flex-col gap-2xl">
