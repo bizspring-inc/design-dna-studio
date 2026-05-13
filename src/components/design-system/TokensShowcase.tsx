@@ -133,6 +133,20 @@ const palettes: { name: string; entries: ColorEntry[] }[] = [
   { name: "Red", entries: red },
 ];
 
+// ─── Chart ───────────────────────────────────────────────────────────
+const chart: ColorEntry[] = [
+  { cls: "bg-chart-1",  label: "chart-1",  token: "chart-1" },
+  { cls: "bg-chart-2",  label: "chart-2",  token: "chart-2" },
+  { cls: "bg-chart-3",  label: "chart-3",  token: "chart-3" },
+  { cls: "bg-chart-4",  label: "chart-4",  token: "chart-4" },
+  { cls: "bg-chart-5",  label: "chart-5",  token: "chart-5" },
+  { cls: "bg-chart-6",  label: "chart-6",  token: "chart-6" },
+  { cls: "bg-chart-7",  label: "chart-7",  token: "chart-7" },
+  { cls: "bg-chart-8",  label: "chart-8",  token: "chart-8" },
+  { cls: "bg-chart-9",  label: "chart-9",  token: "chart-9" },
+  { cls: "bg-chart-10", label: "chart-10", token: "chart-10" },
+];
+
 // ─── Spacing / Radius ────────────────────────────────────────────────
 const spacings = [
   ["2xs", "2px"], ["xs", "4px"], ["sm", "8px"], ["md", "16px"],
@@ -219,6 +233,15 @@ export default function TokensShowcase() {
             <ColorGrid entries={p.entries} />
           </div>
         ))}
+      </section>
+
+      {/* Chart Colors */}
+      <section className="flex flex-col gap-md">
+        <Heading level={3}>Chart Colors</Heading>
+        <Text size="sm" tone="muted">
+          데이터 시각화(차트/그래프) 전용 컬러 토큰. 카테고리 구분이 필요한 시리즈에 순서대로 사용.
+        </Text>
+        <ColorGrid entries={chart} />
       </section>
 
       {/* Typography */}
