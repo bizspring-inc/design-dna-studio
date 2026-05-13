@@ -181,6 +181,16 @@
     --sidebar-border:             var(--gray-200);
     --sidebar-ring:               var(--sky);
 
+    /* Chart / Data Visualization */
+    --chart-1: 203 94% 62%;   /* sky */
+    --chart-2: 167 70% 47%;   /* teal */
+    --chart-3: 248 81% 65%;   /* purple */
+    --chart-4: 218 84% 60%;   /* blue */
+    --chart-5: 45 100% 51%;   /* yellow */
+    --chart-6: 7 100% 60%;    /* red */
+    --chart-7: 210 9% 31%;    /* gray-700 */
+    --chart-8: 210 14% 89%;   /* gray-300 */
+
     /* ================================================================
      * RADIUS / SHADOW / BORDER
      * ================================================================ */
